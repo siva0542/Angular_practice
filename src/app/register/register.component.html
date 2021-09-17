@@ -1,0 +1,17 @@
+
+<div class="col-9" class="col-xs-1 text-center">
+<div class="container">
+<h2>Welcome to our application.</h2>
+<h2>Login Page</h2>
+<form> 
+<div class =”container”>
+    <label>Name:</label>
+<input matInput name="name" type="text" class="form-control" placeholder="Enter name" [(ngModel)]=name>
+<label>Password:</label>
+<input matInput type="password" name="password" class="form-control" placeholder="Enter Password" [(ngModel)]=password><br>
+<button type="submit" class="btn btn-outline-primary" (click)="submitForm()">Submit</button>
+<router-outlet></router-outlet>
+</div>
+</form>
+</div>
+</div>
