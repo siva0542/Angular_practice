@@ -9,6 +9,7 @@ import { DisplayComponent } from './display/display.component';
 import { DeleteComponent } from './delete/delete.component';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { UsersService } from './users.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [UsersService],
   //bootstrap: [AppComponent]

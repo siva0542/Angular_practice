@@ -7,6 +7,8 @@
 <div class =”container”>
     <label>Name:</label>
 <input matInput name="name" type="text" class="form-control" placeholder="Enter name" [(ngModel)]=name>
+<label>Email:</label>
+<input matInput name="email" type="email" class="form-control" placeholder="Enter email" [(ngModel)]=email>
 <label>Password:</label>
 <input matInput type="password" name="password" class="form-control" placeholder="Enter Password" [(ngModel)]=password><br>
 <button type="submit" class="btn btn-outline-primary" (click)="submitForm()">Submit</button>
