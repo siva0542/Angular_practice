@@ -122,13 +122,13 @@ function loginmiddleware(req,res,next){
     const {authorization} =req.headers
    console.log(authorization,"dfs")
     if(!authorization){
-        return res.status(401).json({error:"you must be logged in"})
+        return res.status(401).json({error:"you must be logged in to access the delete and display functions"})
     }
     const token=authorization.replace("Bearer ","")
 //  console.log(token,"fadgfs")
     jwt.verify(token,JWT_SERECTKEY,(err,payload)=>{
         if(err){
-            return res.status(401).json({error:"you must be logged in"})
+            return res.status(401).json({error:"you must be logged in to access the delete and display functions"})
         }
        console.log(payload,token)
         const {_id}=payload
