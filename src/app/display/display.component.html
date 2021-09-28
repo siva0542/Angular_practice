@@ -3,24 +3,33 @@
 <div class="row">
 Welcome to our application.
 </div> -->
+<div class="content-container">
+<!-- <div class="jumbotron border" >  -->
 <div class =”container” class="d-flex justify-content-center">
-    <table mdbTable> 
+  <div class="container h-100">
+    <table class="table table-bordered"> 
         <tr>
           <th><h2>Name&emsp;</h2></th>
           <th><h2>Email&emsp;</h2></th>
-          <th><h2>Password</h2></th>
+          <th><h2>Password&emsp;</h2></th>
         </tr>
         <tr *ngFor="let users of users">
-          <td class="text-info"><h4>{{users.name}}</h4></td>
-          <td class="text-info"><h4>{{users.email}}</h4></td>
-          <td class="text-info"><h4>{{users.password}}</h4></td>
+          <td class="text-info"><p>{{users.name}}</p></td>
+          <td class="text-info"><p>{{users.email}}</p></td>
+          <td class="text-info"><p>{{users.password}}</p></td>
         </tr>
        
       </table>
+      
+        <button type="button" class="btn btn-danger"(click)='logout()'>Logout</button>
+      
 <!-- <p>{{users.name}}</p>
 <p>{{users.name}}'s' password is {{users.password}}</p> -->
-
+<!-- <h2>{{error}}</h2> -->
 </div>
+</div>
+</div>
+<!-- </div> -->
 
 
 <!-- <table>
