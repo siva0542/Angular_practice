@@ -9,7 +9,7 @@ const JWT_SERECTKEY="siva"
 // User.create
 const app=express();
 // const User = require("./models/users");
-// const uriLink="mongodb+srv://demo:demo@cluster0.ijfex.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 
 const uriLink=process.env.uriLink;
 
