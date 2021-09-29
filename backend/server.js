@@ -117,7 +117,7 @@ app.post("/login",(req,res,next)=>{
     return res.status(422).json({error:"Invalid mail or password"})
 })
 
-function loginmiddleware(req,res,next){
+function loginuser(req,res,next){
     console.log(req.headers)
     const {authorization} =req.headers
    console.log(authorization,"dfs")
@@ -132,15 +132,15 @@ function loginmiddleware(req,res,next){
         }
        console.log(payload,token)
         const {_id}=payload
-        User.findById(_id).then(userdata=>{
-            req.user=userdata
-            console.log(userdata)
+        User.findById(_id).then(user=>{
+            req.user=user
+            console.log(user)
             next()
         })  
     })
 }
 
-app.get("/display",loginmiddleware,(req,res)=>{
+app.get("/display",loginuser,(req,res)=>{
     User.find((error, result)=>{
         try{
             if (error){
@@ -154,6 +154,33 @@ app.get("/display",loginmiddleware,(req,res)=>{
 
     })
 });
+
+app.post("/update/:email", async (req, res)=>{
+    const {name, email, password} = req.body
+    try{
+        hashedpassword=await bcrypt.hash(password,13);
+        // bcrypt.hash(password,13).then(hashedpassword=>{})
+        await User.updateOne({email: req.params.email},{
+            name: name,
+            email: email,
+            password: hashedpassword //bcrypt.hash(password,13)
+        });
+        res.send("User Updated!")
+    }catch(error){
+        res.send(error.message);
+    }
+})
+
+app.get("/userExists/:email", async (req, res)=>{
+    try{
+        console.log("exist entered")
+        res.send(await User.findOne({email:req.params.email})?true:false)
+    }catch(error){
+        console.log("siva")
+        console.log(error.message);
+    }
+    
+})
 
 app.delete("/delete/:name", async (req, res)=>{
     try{

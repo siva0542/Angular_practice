@@ -33,10 +33,13 @@
     <a class="navbar-brand" routerLink="/login" routerLinkActive="active"> Login </a><br><br><br><br>
     </li>
 <li class ="nav-item">
-<a class ="navbar-brand" *ngIf="user"  routerLink="/delete" routerLinkActive="active"> Delete </a><br><br><br><br>
+<a class ="navbar-brand" routerLink="/delete" routerLinkActive="active"> Delete </a><br><br><br><br>
 </li>
+<li class ="nav-item">
+    <a class ="navbar-brand" routerLink="/update" routerLinkActive="active"> Update </a><br><br><br><br>
+    </li>
 <li class ="nav-item" >
-<a class="navbar-brand" *ngIf="user"  routerLink="/display" routerLinkActive="active"> Display </a><br><br><br><br><br><br><br><br>
+<a class="navbar-brand"  routerLink="/display" routerLinkActive="active"> Display </a><br><br><br><br><br><br><br><br>
 </li>
 </ul>
 </nav>

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     DisplayComponent,
     DeleteComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

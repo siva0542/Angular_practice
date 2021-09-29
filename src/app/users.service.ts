@@ -6,7 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-const httpOptions={headers:new HttpHeaders({'content-type':'application/json'})}
+const httpOptions={headers:new HttpHeaders({'content-type':'application/json',"Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS"})}
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,16 @@ export class UsersService {
       console.log(name);
       return this.http.delete(url);
     }
+
+    isExists(email: string): Observable<boolean>{
+      console.log(email)
+      return this.http.get<boolean>("http://localhost:5000/userExists/"+ email);
+    }
+
+    updateUser(email: string, user: User): Observable<User>{
+      return this.http.post<User>("http://localhost:5000/update/" + email, user);
+    }
+  
 
     userLogin(users:User):Observable<any>{
       const url="http://localhost:5000/login";
