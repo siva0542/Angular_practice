@@ -29,34 +29,31 @@ export class UsersService {
     if(this.JwtAuthToken===""){
       this.router.navigate(['/login'])
     }
-    return this.http.get<any>("http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/display",{headers:header})
-    // return this.http.get<any>("http://localhost:5000/display",{headers:header})
+    return this.http.get<any>("http://localhost:5000/display",{headers:header})
   }
 
   setUsers(users:User):Observable<User[]>{
-    return this.http.post<User[]>("http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/register",users,httpOptions);
-
-    // return this.http.post<User[]>("http://localhost:5000/register",users,httpOptions);
+    return this.http.post<User[]>("http://localhost:5000/register",users,httpOptions);
   }
 
   deleteUsers(name:String):Observable<any>{
-      const url="http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/delete/"+name;
+      const url="http://localhost:5000/delete/"+name;
       console.log(name);
       return this.http.delete(url);
     }
 
     isExists(email: string): Observable<boolean>{
       console.log(email)
-      return this.http.get<boolean>("http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/userExists/"+ email);
+      return this.http.get<boolean>("http://localhost:5000/userExists/"+ email);
     }
 
     updateUser(email: string, user: User): Observable<User>{
-      return this.http.post<User>("http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/update/" + email, user);
+      return this.http.post<User>("http://localhost:5000/update/" + email, user);
     }
   
 
     userLogin(users:User):Observable<any>{
-      const url="http://ec2-18-221-17-80.us-east-2.compute.amazonaws.com/login";
+      const url="http://localhost:5000/login";
       return this.http.post<User[]>(url,users,httpOptions);
     } 
 
